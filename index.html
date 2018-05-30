@@ -9,34 +9,44 @@
     <div class="container">
       <h1 class="title">Majority Classification</h1>
       <p class="subtitle">with Cellular Automata</p>
-      <p class="description">
-        Without random access memory or any central unit to perform counting, this cellular automaton needs to compute whether its initial configuration contains a majority of "on" or "off" states.  If "on" states are the majority, the cellular automaton should signal this fact by turning all the cells "on."  The majority classification task is like having to predict which of two candidates will win an election in your city when all you can see are the political signs on your neighbors' front lawns.
-      </p>
-      <figure>
-        <div class="world"></div>
-        <div class="x axis">space</div>
-        <div class="y axis">time</div>
-      </figure>
-      <p class="description">
-        One reasonable first guess for a rule might be: "Each cell should update to the state that is currently a majority in its local neighborhood."  However, this "local majority vote" cellular automaton doesn't work.
-      </p>
-      <p class="description">
-        The strategy depicted here was evolved by genetic algorithm and is quite clever.  Whenever a black region on the left meets a white region on the right, there is always a vertical boundary between them.  However, whenever a white region on the left meets a black region on the right, a checkerboard triangle forms, composed of alternative black and white cells.  The sides of the growing checkerboard region travel at the same velocity.  If one side collides with a vertical boundary before the other, that side had a shorter distance to travel.  That is, that region is smaller than the region bordered by the other side.  At the collision point, the side disappears, and the black region is allowed to grow.  When the final point disappears, the lattice displays the correct configuration.
-      </p>
-      <p class="description">
-        Jim Crutchfield, who had earlier invented a technique for detecting "information processing structures" in dynamical systems, suggested that boundaries between simple regions are carriers of information and information is processed when these boundaries collide.  Using space-time diagrams to trace the boundaries results in something akin to a trace of elementary particles in a bubble chamber.
-      </p>
-      <p class="citation">
-        Summarized from
-        <a href="#">
-          Complexity: A Guided Tour by Melanie Mitchell
-        </a>
-      </i>
-      </p>
+      <section>
+        <p class="description">
+          Without random access memory or any central unit to perform counting, cellular automata can compute whether an initial configuration contains a majority of "on" or "off" states.  If "on" states are the majority, the cellular automaton will signal this fact by turning all the cells "on."  The majority classification task is like having to predict which of two candidates will win an election in your city when all you can see are the political signs on your neighbors' front lawns.
+        </p>
+        <figure class="animation">
+          <p class="figure-title">Figure 1: Looped animation of an automaton performing majority classification</p>
+          <div class="world"></div>
+          <div class="x axis">space</div>
+        </figure>
+        <p class="description">
+          When designing a ruleset for such an automaton, one reasonable first guess for a rule might be: "Each cell should update to the state that is currently a majority in its local neighborhood."  However, this "local majority vote" approach doesn't work in practice.
+        </p>
+        <p class="description">
+          The strategy depicted in figures one and two was evolved by genetic algorithm and is quite clever.  Whenever a black region on the left meets a white region on the right,  a vertical boundary is created between them.  However, when a white region on the left meets a black region on the right, a checkerboard triangle forms, composed of alternating black and white cells.  The sides of the growing checkerboard region travel at the same velocity.  If one side collides with a vertical boundary before the other, that side had a shorter distance to travel.  That is, that region is smaller than the region bordered by the other side.  At the collision point, the side disappears, and the black region is allowed to grow.  When the final point disappears, the lattice will display only the color of the initial majority.
+        </p>
+        <figure class="spacetime-diagram">
+          <p class="figure-title">Figure 2: Space-time diagram of a cellular automaton performing majority classification</p>
+          <div class="world"></div>
+          <div class="x axis">space</div>
+          <div class="y axis">time</div>
+        </figure>
+        <p class="description">
+          Jim Crutchfield, who had earlier invented a technique for detecting "information processing structures" in dynamical systems, suggested that boundaries between simple regions are carriers of information and information is processed when these boundaries collide.  Using space-time diagrams to trace the boundaries results in something akin to a trace of elementary particles in a bubble chamber.
+        </p>
+        <p class="citation">
+          Summarized from
+          <a href="https://smile.amazon.com/Complexity-Guided-Tour-Melanie-Mitchell/dp/0199798109">
+            Complexity: A Guided Tour
+          </a>
+          by
+          <a href="http://web.cecs.pdx.edu/~mm/">Melanie Mitchell</a>
+        </i>
+        </p>
+      </section>
     </div>
   </body>
   <script type="text/javascript" src="/public/javascripts/namespace.js"></script>
   <script type="text/javascript" src="/public/javascripts/models/cellular_automata.js"></script>
-  <script type="text/javascript" src="/public/javascripts/views/world.js"></script>
+  <script type="text/javascript" src="/public/javascripts/views/lattice.js"></script>
   <script type="text/javascript" src="/public/javascripts/app.js"></script>
 </html>
