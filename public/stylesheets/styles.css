@@ -59,7 +59,12 @@ html, body {
 .container {
   width: 800px;
   margin: 0 auto;
-  padding: 20px 10px 70px;
+  padding: 5rem 1rem;
+}
+
+section {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .title {
@@ -84,11 +89,9 @@ figure {
   position: relative;
   margin: 0;
   padding: 0;
-  padding-bottom: 20px;
 }
 
 .world {
-  padding-top: 20px;
   padding-bottom: 20px;
 }
 
@@ -123,6 +126,14 @@ figure {
 
 .cell.empty {
   background-color: #efefef;
+}
+
+.animation {
+  min-height: 90px;
+}
+
+.spacetime-diagram {
+  padding-bottom: 20px;
 }
 
 .description {
@@ -164,6 +175,12 @@ figure {
 }
 
 a:link, a:visited { color: inherit; }
-a:link {
-  text-decoration: none;
+
+.figure-title {
+  font-style: italic;
+  margin-top: 1.4rem;
+  margin-bottom: 0.5rem;
+  vertical-align: baseline;
+  font-size: 1.4rem;
+  line-height: 2rem;
 }
